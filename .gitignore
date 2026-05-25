@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI assistant config files (removed from history)
+CLAUDE.md
+claude.md
+AGENTS.md
+agents.md
