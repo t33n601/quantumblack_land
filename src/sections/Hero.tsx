@@ -36,16 +36,17 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_50%,rgba(201,162,39,0.10)_0%,transparent_70%)]" />
       </div>
 
-      <div className="relative z-[3] flex flex-col items-center gap-6 px-4 text-center">
+      <div className="relative z-[3] flex flex-col items-center gap-6 px-4 pb-20 pt-16 text-center">
         <div className="relative">
           <div className="absolute -inset-8 rounded-full bg-[radial-gradient(circle,rgba(201,162,39,0.15)_0%,transparent_70%)]" />
           <Image
-            src="/logo.jpg"
+            src="/logo.png"
             alt="Quantum Black Club"
             width={160}
             height={160}
             priority
-            className="relative rounded-full"
+            unoptimized
+            className="relative"
           />
         </div>
 
@@ -53,9 +54,15 @@ export default function Hero() {
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-qb-gold">
             Компьютерный клуб
           </p>
-          <h1 className="text-4xl font-bold tracking-tight text-qb-white sm:text-5xl md:text-6xl lg:text-7xl">
-            QUANTUM BLACK
-          </h1>
+          <Image
+            src="/text.png"
+            alt="QUANTUM BLACK"
+            width={900}
+            height={120}
+            priority
+            unoptimized
+            className="w-full max-w-[320px] sm:max-w-[520px] md:max-w-[720px] lg:max-w-[900px] -mt-3"
+          />
           <p className="mt-1 text-sm text-qb-gray">Власиха, Алтайский край</p>
         </div>
 

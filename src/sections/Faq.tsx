@@ -12,12 +12,12 @@ const FAQS = [
     a: 'Минимальное время — 1 час. Дальше оплата поминутно или по выбранному пакету.',
   },
   {
-    q: 'Можно прийти компанией?',
-    a: 'Да, у нас есть зоны для команд — Squad и Trio|Duo. Для большой компании рекомендуем забронировать заранее.',
+    q: 'Можно ли прийти компанией?',
+    a: 'Да, у нас есть зоны для команд — Squad, Trio и Duo. Для большой компании рекомендуем забронировать заранее.',
   },
   {
     q: 'Есть ли еда и напитки?',
-    a: 'Уточняйте у администратора — наличие и ассортимент могут меняться.',
+    a: 'Да, у нас есть еда и напитки. Широкий ассортимент напитков, в том числе лимонадов и энергетиков. Также в наличии снеки и горячие закуски. Подробный ассортимент уточняйте у администратора.',
   },
 ];
 
@@ -25,14 +25,14 @@ export default function Faq() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="w-full py-20 md:py-28">
+    <section id="faq" className="w-full py-14 md:py-20">
       <div className="container mx-auto px-4 md:px-8">
 
         <div className="flex flex-col gap-10 lg:flex-row lg:gap-20">
 
           <div className="lg:w-56 lg:flex-shrink-0">
             <p className="section-label text-qb-gray">Вопросы</p>
-            <h2 className="text-4xl font-black uppercase leading-none text-white md:text-5xl">
+            <h2 className="text-4xl font-black uppercase text-white md:text-5xl">
               ЧАСТО<br />ЗАДАЮТ
             </h2>
           </div>

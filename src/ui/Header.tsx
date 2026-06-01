@@ -40,11 +40,17 @@ export default function Header() {
     <header ref={menuRef} className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-qb-border">
       <div className="flex items-center justify-between px-4 md:px-8 h-16">
 
-        <div className="flex items-center gap-3">
-          <Image src="/logo.jpg" alt="Quantum Black" width={36} height={36} className="rounded-sm" />
-          <span className="hidden sm:block text-qb-white font-semibold tracking-widest text-sm uppercase">
-            Quantum Black
-          </span>
+        <div className="flex items-center gap-2">
+          <Image src="/logo.png" alt="QB" width={36} height={36} unoptimized className="shrink-0" />
+          <Image
+            src="/text.png"
+            alt="QUANTUM BLACK"
+            width={210}
+            height={28}
+            unoptimized
+            className="hidden sm:block"
+            style={{ height: 22, width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 0 6px rgba(232,190,69,0.5))' }}
+          />
         </div>
 
         <nav className="hidden md:flex items-center gap-6 text-sm text-qb-gray">

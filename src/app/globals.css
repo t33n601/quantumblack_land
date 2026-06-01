@@ -19,6 +19,13 @@ section[id] {
   scroll-margin-top: 96px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  font-kerning: none;
+  text-rendering: optimizeSpeed;
+}
+
 html {
   scroll-behavior: smooth;
   background: #000;
@@ -27,7 +34,7 @@ html {
 }
 
 body {
-  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-family: var(--font-audiowide), var(--font-montserrat), system-ui, sans-serif;
   background: #000;
   font-size: 15px;
   line-height: 1.6;
@@ -118,11 +125,19 @@ body {
 
 .zone-card {
   perspective: 1000px;
-  width: 330px;
-  max-width: calc(100svw - 40px);
-  height: 460px;
-  flex-shrink: 0;
+  height: 440px;
   cursor: pointer;
+  min-width: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 600px) {
+  .zone-card { height: 500px; }
+}
+
+.price-hint { display: none; }
+@media (min-width: 600px) {
+  .price-hint { display: inline; }
 }
 
 .zone-card-inner {
@@ -176,21 +191,21 @@ body {
 }
 
 .zones-scroll {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  overflow-y: visible;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 12px;
-  contain: paint;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  overflow: hidden;
 }
 
-.zones-scroll::-webkit-scrollbar { height: 3px; }
-.zones-scroll::-webkit-scrollbar-track { background: #111; }
-.zones-scroll::-webkit-scrollbar-thumb { background: #C9A227; border-radius: 99px; }
+@media (min-width: 1024px) {
+  .zones-scroll {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
-.zone-card { scroll-snap-align: start; }
+.zone-bg-text {
+  font-size: clamp(32px, 9vw, 68px);
+}
 
 .spec-row {
   padding: 6px 0;
@@ -198,3 +213,30 @@ body {
   font-size: 13px;
 }
 .spec-row:last-child { border-bottom: none; }
+
+/* Quantum Black brand text — matches neon logo style */
+.qb-brand {
+  font-family: var(--font-audiowide), var(--font-montserrat), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Large neon variant (hero/about headings) */
+.qb-brand-neon {
+  font-family: var(--font-audiowide), var(--font-montserrat), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #C9A227;
+  text-shadow:
+    0 0 12px rgba(201,162,39,0.5),
+    0 0 30px rgba(201,162,39,0.2);
+}
+
+/* Small brand label (header/footer) */
+.qb-brand-label {
+  font-family: var(--font-audiowide), var(--font-montserrat), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #C9A227;
+  text-shadow: 0 0 12px rgba(201,162,39,0.4);
+}

@@ -5,8 +5,9 @@ import { useState } from 'react';
 const ZONE_OPTIONS = [
   'Play Zone — PC',
   'Squad — PC',
-  'Trio | Duo — PC',
-  'PS Place — PlayStation 5',
+  'Trio — PC',
+  'Duo — PC',
+  'VIP Комнаты — PC',
   'PS VIP — PlayStation 5',
 ];
 
@@ -40,7 +41,7 @@ export default function Booking() {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const text = `Бронь:\nИмя: ${form.name}\nТел: ${form.phone}\nЗона: ${form.zone}\nИгроков: ${form.players}\nДата/время: ${form.datetime}`;
-    window.open(`https://t.me/quantum_black22?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(`https://t.me/QuantumBlackClub?text=${encodeURIComponent(text)}`, '_blank');
     setSent(true);
   }
 
@@ -53,21 +54,48 @@ export default function Booking() {
   }
 
   return (
-    <section id="booking" className="w-full py-20 md:py-28">
+    <section id="booking" className="w-full py-14 md:py-20">
       <div className="container mx-auto flex flex-col items-center justify-between gap-10 px-4 md:flex-row md:px-8">
 
-        <div className="md:max-w-xs">
+        <div className="shrink-0 md:max-w-sm">
           <p className="section-label text-qb-gray">Бронирование</p>
-          <h2 className="font-black uppercase leading-none text-white" style={{ fontSize: 'clamp(28px, 8vw, 48px)' }}>
+          <h2 className="font-black uppercase text-white" style={{ fontSize: 'clamp(22px, 3.5vw, 34px)' }}>
             ЗАБРОНИРОВАТЬ
           </h2>
           <p style={{ marginTop: 16, fontSize: 12, color: 'rgba(255,255,255,0.4)', lineHeight: 1.7 }}>
-            Заполни форму — мы подтвердим бронь через Telegram. Или звони:{' '}
+            Заполните форму — мы подтвердим бронь через Telegram. Или звоните:{' '}
             <a href="tel:+79619928660" style={{ color: '#C9A227' }}>+7-961-992-86-60</a>
           </p>
         </div>
 
         <div style={{ flex: 1, maxWidth: 520 }}>
+
+          {/* Langame app booking */}
+          <div style={{ marginBottom: 20, padding: '14px 18px', background: 'rgba(201,162,39,0.04)', border: '1px solid rgba(201,162,39,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
+            <div>
+              <p style={{ fontSize: 11, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'rgba(255,255,255,0.35)', marginBottom: 4 }}>Быстрая бронь</p>
+              <p style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)' }}>
+                Также можно забронировать через приложение{' '}
+                <span style={{ color: '#C9A227', fontWeight: 700 }}>Langame</span>
+              </p>
+            </div>
+            <a
+              href="https://langame.ru/799459280_computerniy_club_cernyi-kvant_barnaul"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ flexShrink: 0, display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#C9A227', border: '1px solid rgba(201,162,39,0.4)', padding: '8px 16px', textDecoration: 'none', transition: 'background 0.18s', background: 'transparent' }}
+              onMouseEnter={e => (e.currentTarget.style.background = 'rgba(201,162,39,0.08)')}
+              onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
+              Открыть Langame
+            </a>
+          </div>
+
           {sent ? (
             <div
               style={{
@@ -88,7 +116,7 @@ export default function Booking() {
                 Бронь записана!
               </p>
               <p style={{ marginTop: 8, fontSize: 13, color: 'rgba(255,255,255,0.5)' }}>
-                Мы свяжемся с тобой в ближайшее время.
+                Мы свяжемся с Вами в ближайшее время.
               </p>
               <button
                 onClick={() => setSent(false)}
@@ -111,7 +139,7 @@ export default function Booking() {
                     onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
                     onFocus={() => setFocused('name')}
                     onBlur={() => setFocused(null)}
-                    placeholder="Твоё имя"
+                    placeholder="Ваше имя"
                     style={{ ...focusStyle('name'), '::placeholder': { color: 'rgba(255,255,255,0.2)' } } as React.CSSProperties}
                   />
                 </div>
@@ -144,7 +172,7 @@ export default function Booking() {
               </div>
 
               <div>
-                <p className="section-label" style={{ color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>Выбери зону</p>
+                <p className="section-label" style={{ color: 'rgba(255,255,255,0.4)', marginBottom: 6 }}>Выберите зону</p>
                 <select
                   required
                   value={form.zone}
